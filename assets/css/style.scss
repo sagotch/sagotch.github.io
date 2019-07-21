@@ -1,0 +1,23 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+header { display: none ; }
+
+section {
+  float: none ;
+  width: 100% ;
+}
+
+footer {
+  position: relative ;
+  float: none ;
+  bottom: auto ;
+}
+
+.home-btn {
+  position: fixed ;
+  top: 50px ;
+  left: 50px ;
+}
