@@ -1,7 +1,7 @@
-# Geneweb et js_of_ocaml: retours d'expérience
+# Geneweb et js_of_ocaml
 
-Compiler geneweb en javascript afin de l'embarquer dans une
-application cordova et/ou electron.
+_Compiler geneweb en javascript afin de l'embarquer dans une
+application cordova et/ou electron._
 
 ## js_of_ocaml et jingoo
 

@@ -1,7 +1,7 @@
 # GWDB : l'encapsulation
 
 _Retour sur les récents changement apporté du module Gwdb :
-l'encapsulation_
+l'encapsulation._
 
 À l'origine, il n'existait qu'un seul backend de stockage des
 données d'une base. Nous l'appelerons gwdb1.

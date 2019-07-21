@@ -1,7 +1,7 @@
 # GWDB : les collections et les marqueurs
 
 _Retour sur les récents changement apporté du module Gwdb :
-les collections_
+les collections._
 
 Dans geneweb, il arrive souvent de devoir itérer sur toutes les
 personnes de la base. Jusqu'ici, la façon de faire était d'utiliser
