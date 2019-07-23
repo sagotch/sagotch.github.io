@@ -2,6 +2,10 @@
 
 ## POSTS
 
+[Détection des lieux](/posts/2019-07-22-detection-des-lieux/) -
+_Implémentation d'un module capable de regrouper les lieux par pays et
+régions_
+
 [GWDB : les collections et les
 marqueurs](/posts/2019-07-21-gwdb-collections/) -
 _Retour sur les récents changement apporté du module Gwdb : les
