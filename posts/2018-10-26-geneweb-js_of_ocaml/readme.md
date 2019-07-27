@@ -1,3 +1,10 @@
+---
+layout: post
+title: Geneweb et js_of_ocaml
+tags: js_of_ocaml javascript cordova electron
+author: sagotch
+---
+
 # Geneweb et js_of_ocaml
 
 _Compiler geneweb en javascript afin de l'embarquer dans une
@@ -5,11 +12,11 @@ application cordova et/ou electron._
 
 ## js_of_ocaml et jingoo
 
-Après quelques hésitation, j'ai choisi de réutiliser le système de
-templates sur lequel je continue de travailler. Avec les modifications
-faites (et toujours plus avec celles à venir), jingoo est un language
-de template très complet, et toutes les données présentent dans
-geneweb (personnes, familles, et leur attributs).
+Après quelques hésitation, j'ai choisi d'utiliser le système de
+templates jingoo, sur lequel je continue de travailler. Avec les
+modifications faites (et toujours plus avec celles à venir), jingoo
+est un language de template très complet, et toutes les données
+présentent dans geneweb (personnes, familles, et leur attributs).
 
 Cependant, jingoo ne fonctionne pas immédiatement en javascript car il
 utilise des mutex et un binding à la lib pcre pour les quelques
@@ -175,5 +182,3 @@ traiter une requête, et traiter la requête dans le callback. Bien
 qu'assez contraignant (il faut avoir en têtes les fichiers dont on va
 avoir besoin pour telle ou telle action), ce n'est pas infaisable. À
 choisir entre ça et la solution précédente, je ne saurais me décider.
-
-<a class="home-btn" href="/">Retout à l’accueil</a>
