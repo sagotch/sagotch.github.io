@@ -2,6 +2,12 @@
 
 ## POSTS
 
+[Détection des lieux -
+Implémentation](/posts/2019-07-27-detection-des-lieux-implementation/)
+- _Détails techniques d'un module capable de regrouper les lieux par
+régions : comment rester efficace en temps CPU et en
+consommation mémoire._
+
 [Détection des lieux](/posts/2019-07-22-detection-des-lieux/) -
 _Implémentation d'un module capable de regrouper les lieux par pays et
 régions_

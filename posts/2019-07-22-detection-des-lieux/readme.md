@@ -124,3 +124,5 @@ manquantes à partir de ce qu'on a pu trouver. Par exemple, si la
 région n'est pas renseigné, on peut la retrouver si le département
 l'est. Si le département est `FR_Paris`, alors la ville est
 forcément `Paris`.
+
+<a class="home-btn" href="/">Retout à l’accueil</a>

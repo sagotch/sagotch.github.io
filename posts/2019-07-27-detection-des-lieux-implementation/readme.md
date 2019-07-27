@@ -1,9 +1,10 @@
 # Détection des lieux - Implémentation
 
-_Les détails technique d'un de regrouper les lieux. Voyons comment
-rester efficace en temps CPU et en consommation mémoire._
+_Détails techniques d'un module capable de regrouper les lieux par
+régions : comment rester efficace en temps CPU et en
+consommation mémoire._
 
-_Note : pour plus de consision, je parlais indifférement de __région__
+_Note: pour plus de consision, je parlais indifférement de __région__
 pour désigner les pays, les régions et les sous-régions_
 
 ## Rappel sur la représentation mémoire
@@ -41,28 +42,86 @@ monde.
 Afin de ne pas grossir la taille de GeneWeb inutilement, nous n'allons
 pas garder ces chaînes dans le programme, nous allons en fait garder
 uniquement la valeur du hash de ces chaînes, soit un entier. Cela
-devient tout de suite beaucoup plus acceptable.
+devient tout de suite beaucoup plus acceptable. Nous appelerons cet
+entier _la clé_.
 
-Ainsi, une chaîne que l'on voudra comparé subira le m
+Ainsi, lorsqu'on voudra comparer une chaîne, nous allons d'abord
+calculer sa clé, puis chercher si elle correspond à une valeur dans
+notre liste de régions.
 
 ## L'implémentation
 
-Nous voulons produire un module capable de trouver une région à partir
-d'une chaîne de caractères. Nous avons vu comment
+Nous avons vu précédemment comment ne pas embarquer toutes les chaînes
+de caractères dans le programme. Cependant, écrirer à la main les
+clés, de nos régions serait fastidieux et une source d'erreur facile à
+faire.
 
-Un programme OCaml va se charger de définir
+Nous allons donc générer le module de comparaison à partir de nos
+données source (les régions et leur écritures possibles).
 
+Pour cela, rien de plus simple, un programme OCaml va se charger
+d'écrire ce module pour nous. À partir de notre liste de variants et
+des chaînes de caractères associées, notre générateur va calculer les
+clés de chaques valeurs et générer le patter matching correspondant.
+
+Par exemple, à partir de cette liste de données:
+
+```ocaml
+[ Foo, ["Foo";"Föo";"Le Foo";"The Foo"]
+; Bar, ["Bar";"Bãr";"Le Bar";"Baar"] ]
+```
+
+et en admettant que les clés correspondantes sont:
+
+```ocaml
+[ Foo, [1;1;2;3]
+; Bar, [4;4;5;6] ]
+```
+
+Notre programme génèrera ce code:
+
+```ocaml
+let fn = function
+| 1 | 2 | 3 -> Foo
+| 4 | 5 | 6 -> Bar
+| _ -> raise Not_found
+```
+
+La fonction `fn` obtenue n'aura donc pas besoin de connaitre les
+valeurs initiales des chaînes de caractères, et sera très
+efficace, en temps CPU et en consommation mémoire.
 
 ## Les collisions de hash
 
 Pour le moment, je n'ai pas eu de problème de collision de hash (c'est
-à dire deux chaines de charactère qui seraient représentées par le
-même entier une fois hachée). Il est peut probable que cela arrive,
-car il faudrait que deux pays différent produisent le même hash. Pour
-les régions et sous-régions, le hash n'a besoin d'être unique qu'à
-l'intérieur de leur pays, pas à un niveau mondial.
+à dire deux chaines de charactère qui seraient représentées par la
+même clé). Il est peu probable que cela arrive, car il faudrait que
+deux pays différent produisent le même hash. Pour les régions et
+sous-régions, le hash n'a besoin d'être unique qu'à l'intérieur de
+leur pays, pas à un niveau mondial.
 
 Si cela venait à ce produire, la chose ne serait cependant pas
 dramatique, il faudrait simplement stocker un deuxième hash (la chaine
 moins un charactère, par exemple) capable de départager les deux
 régions impliquées dans la collision.
+
+## Conclusion
+
+Nous avons un code très efficace pour regrouper les lieux par région.
+
+Que reste-t-il à faire ?
+
+Le plus évident, mais pas le moins fastidieux: remplir la liste des
+régions, et la maintenir à jour. Ces données peuvent être ajoutées au
+fur et à mesure, et le monde devrait être suffisament stable pour ne
+pas changer les noms des régions tous les quatres matins.
+
+Ensuite, comment gérer les anciennes régions ? Certains pays
+disparaissent, les frontières bougent, les régions sont réformés.
+
+Pour le moment, rien n'est prévu pour gérer les anciens noms de
+région.  Comment statué dans l'article précédent, c'est la
+localisation sur une carte actuelle qui nous intéressera ici. Mais la
+question mérite tout de même que l'on y réfléchisse.
+
+<a class="home-btn" href="/">Retout à l’accueil</a>
