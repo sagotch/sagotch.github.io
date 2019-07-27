@@ -101,10 +101,6 @@ mais on peut bien sûr penser mettre en place une extraction
 automatique de ce données depuis des sources réunissant déjà les
 appelations différentes utilisées pour un même variant.
 
-Inutile d'entrer toutes les variantes (avec ou sans accent/trait
-d'union, représentation originale et représentation ascii), car les
-chaines sont normalisés avant comparaison.
-
 Une fois que l'on a ces correspondance le reste va tout seul.
 
 On commence par determiner le pays, étape cruciale pour le bon
