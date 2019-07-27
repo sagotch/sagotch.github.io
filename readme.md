@@ -22,6 +22,6 @@ l'encapsulation](/posts/2019-07-20-gwdb-encapsulation/) -
 _Retour sur les récents changement apporté du module Gwdb :
 l'encapsulation._
 
-[Geneweb et js_of_ocaml](/posts/2018-10-26-geneweb-js_of_ocaml/) -
-_Compiler geneweb en javascript afin de l'embarquer dans une
+[GeneWeb et js_of_ocaml](/posts/2018-10-26-geneweb-js_of_ocaml/) -
+_Compiler GeneWeb en JavaScript afin de l'embarquer dans une
 application cordova et/ou electron._
