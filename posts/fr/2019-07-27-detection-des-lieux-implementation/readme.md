@@ -1,17 +1,18 @@
 # Détection des lieux - Implémentation
 
 _Détails techniques d'un module capable de regrouper les lieux par
-régions : comment rester efficace en temps CPU et en
+région : comment rester efficace en temps CPU et en
 consommation mémoire._
 
-_Note: pour plus de consision, je parlais indifférement de __région__
+_Note: pour plus de concision, je parlais indifféremment de __région__
 pour désigner les pays, les régions et les sous-régions_
 
 ## Rappel sur la représentation mémoire
 
-Dans [un post précédent](/posts/2019-07-22-detection-des-lieux/), nous
-avons vu que chaque région était représenté par un entier. Inutile
-d'aller plus loin dans l'optimisation de l'utilisation de la mémoire.
+Dans [un article précédent](/posts/2019-07-22-detection-des-lieux/),
+nous avons vu que chaque région était représentée par un
+entier. Inutile d'aller plus loin dans l'optimisation de l'utilisation
+de la mémoire.
 
 ## La comparaison des chaînes de caractères
 
@@ -19,14 +20,14 @@ Là ou le bât blesse, c'est au niveau du stockage des chaines de
 caractères associées à chaque région. En effet, il faut être capable
 de trouver une correspondance avec un pays dans de nombreuses
 langues. Au moins les langues officiellement supportées par GeneWeb,
-mais également le'orthographe du pays dans sa langue officielle, ainsi
+mais également l'orthographe du pays dans sa langue officielle, ainsi
 que toutes les variantes (e.g. `United States`, `USA`, ...) connues.
 
 ### Réduction du nombre de chaînes à comparer
 
 Inutile d'entrer toutes les variantes (avec ou sans accent/trait
 d'union, représentation originale et représentation ascii), car les
-chaines sont normalisés avant comparaison. Les chaînes ne seront
+chaînes sont normalisées avant comparaison. Les chaînes ne seront
 comparées qu'après avoir été converties en représentation ASCII, sans
 espace et en minuscule. Ainsi, _"Alpes-de-Haute-Provence"_ et _"Alpes
 de Haute Provence"_ auront la même valeur une fois normalisés.
@@ -42,7 +43,7 @@ monde.
 Afin de ne pas grossir la taille de GeneWeb inutilement, nous n'allons
 pas garder ces chaînes dans le programme, nous allons en fait garder
 uniquement la valeur du hash de ces chaînes, soit un entier. Cela
-devient tout de suite beaucoup plus acceptable. Nous appelerons cet
+devient tout de suite beaucoup plus acceptable. Nous appellerons cet
 entier _la clé_.
 
 Ainsi, lorsqu'on voudra comparer une chaîne, nous allons d'abord
@@ -52,17 +53,17 @@ notre liste de régions.
 ## L'implémentation
 
 Nous avons vu précédemment comment ne pas embarquer toutes les chaînes
-de caractères dans le programme. Cependant, écrirer à la main les
-clés, de nos régions serait fastidieux et une source d'erreur facile à
+de caractères dans le programme. Cependant, écrire à la main les
+clés, de nos régions serait fastidieux et une source d'erreurs faciles à
 faire.
 
 Nous allons donc générer le module de comparaison à partir de nos
-données source (les régions et leur écritures possibles).
+données source (les régions et leurs écritures possibles).
 
 Pour cela, rien de plus simple, un programme OCaml va se charger
 d'écrire ce module pour nous. À partir de notre liste de variants et
 des chaînes de caractères associées, notre générateur va calculer les
-clés de chaques valeurs et générer le patter matching correspondant.
+clés de chaque valeur et générer le pattern matching correspondant.
 
 Par exemple, à partir de cette liste de données:
 
@@ -94,15 +95,15 @@ efficace, en temps CPU et en consommation mémoire.
 ## Les collisions de hash
 
 Pour le moment, je n'ai pas eu de problème de collision de hash (c'est
-à dire deux chaines de charactère qui seraient représentées par la
+à dire deux chaines de caractères qui seraient représentées par la
 même clé). Il est peu probable que cela arrive, car il faudrait que
-deux pays différent produisent le même hash. Pour les régions et
+deux pays différents produisent le même hash. Pour les régions et
 sous-régions, le hash n'a besoin d'être unique qu'à l'intérieur de
 leur pays, pas à un niveau mondial.
 
-Si cela venait à ce produire, la chose ne serait cependant pas
-dramatique, il faudrait simplement stocker un deuxième hash (la chaine
-moins un charactère, par exemple) capable de départager les deux
+Si cela venait à se produire, la chose ne serait cependant pas
+dramatique, il faudrait simplement stocker un deuxième hash (la chaîne
+moins un caractère, par exemple) capable de départager les deux
 régions impliquées dans la collision.
 
 ## Conclusion
@@ -113,15 +114,13 @@ Que reste-t-il à faire ?
 
 Le plus évident, mais pas le moins fastidieux: remplir la liste des
 régions, et la maintenir à jour. Ces données peuvent être ajoutées au
-fur et à mesure, et le monde devrait être suffisament stable pour ne
-pas changer les noms des régions tous les quatres matins.
+fur et à mesure, et le monde devrait être suffisamment stable pour ne
+pas changer les noms des régions tous les quatre matins.
 
 Ensuite, comment gérer les anciennes régions ? Certains pays
 disparaissent, les frontières bougent, les régions sont réformés.
 
 Pour le moment, rien n'est prévu pour gérer les anciens noms de
-région.  Comment statué dans l'article précédent, c'est la
-localisation sur une carte actuelle qui nous intéressera ici. Mais la
-question mérite tout de même que l'on y réfléchisse.
-
-<a class="home-btn" href="/">Retout à l’accueil</a>
+régions. Comme statué dans l'article précédent, c'est la localisation
+sur une carte actuelle qui nous intéressera ici. Mais la question
+mérite tout de même que l'on y réfléchisse.
