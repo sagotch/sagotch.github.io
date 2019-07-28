@@ -6,10 +6,10 @@ régions_
 ## État des lieux
 
 Le mode `m=PS` permet d'afficher la liste des lieux de l'arbre.
-Évidemment, la liste de tous les lieux de l'arbre devient vite confue
-à la lecture, c'est pourquoi geneweb tente un regroupement. La façon
+Évidemment, la liste de tous les lieux de l'arbre devient vite confuse
+à la lecture, c'est pourquoi GeneWeb tente un regroupement. La façon
 de faire est simple, et à vrai dire **trop** simple. Le texte est
-découpé sur les virgules, et on obtient alors une liste de termes. Le
+découpé sur les virgules, et on obtient alors une liste de termes. Les
 lieux qui ont leur dernier terme en commun (qui est considéré comme le
 moins précis) sont regroupés sous ce terme.
 
@@ -18,12 +18,12 @@ lieux _Laon, 02_, _Laon, 02408, Aisne_ et _Laon, Aisne, FRANCE_ se
 retrouve classé dans trois catégories différentes : _02_, _Aisne_ et
 _FRANCE_.
 
-## Les solution existantes ?
+## Les solutions existantes ?
 
-Je voulais éviter les services en lignes. Être dépendant d'une
-connection internet pour le bon fonctionnement d'un logiciel n'est pas
+Je voulais éviter les services en ligne. Être dépendant d'une
+connexion internet pour le bon fonctionnement d'un logiciel n'est pas
 une décision à prendre à la légère. Bien sûr, il est possible de
-dépendre d'un service web et d'utiliser un cache du côté geneweb pour
+dépendre d'un service web et d'utiliser un cache du côté GeneWeb pour
 continuer à fonctionner hors ligne.
 
 J'ai regardé du côté de GeoNames, et j'ai trouvé les données beaucoup
@@ -31,17 +31,17 @@ trop fournies pour l'usage que je comptais en faire.
 
 Rien que l'export des données de la France fait 6Mo. Une granularité
 qui descend jusqu'à la ville me semble superflue dans notre cas. Le
-département (ou équivalent) est, à mon avis, suffisament précis.
+département (ou équivalent) est, à mon avis, suffisamment précis.
 
 Comme GeoName, les autres bases de données disponibles nécessitent un
-tri et une selection si l'on cherche à mettre en place une solution
+tri et une sélection si l'on cherche à mettre en place une solution
 simple et à moindre coût pour ce qui est du volume de données
-nécessaire au fonctionnement.
+nécessaires au fonctionnement.
 
 Ces bases externes peuvent aussi entrainer l'ajout de nombreuses
 dépendances, posent la question de la disponibilité sur toutes les
 plateformes, de la facilité d'installation, de maintenance, et de la
-stabilité sur un temps long du format de données utilisés.
+stabilité sur un temps long du format de données utilisé.
 
 ## La solution maison
 
@@ -60,19 +60,19 @@ séparé du reste par une virgule ou un point-virgule représente un
 sous-partie, du contenu écrit entre parenthèses ou crochets représente
 un commentaire attaché à une sous-partie (potentiellement vide).
 
-La notation `[Lieu-dit] - Ville`, utilisé dans geneweb pour renseigner
+La notation `[Lieu-dit] - Ville`, utilisé dans GeneWeb pour renseigner
 les lieux-dits. Ici, `[Lieu-dit] - Ville` ne sera pas découpé mais
 représentera une seule sous-partie de la chaine.
 
 ### Représentation mémoire
 
-Techniquement parlant, les pays/région/département sont simplement
+Techniquement parlant, les pays/régions/départements sont simplement
 représentés par des types somme.
 
 Étant donné qu'il s'agit de variant sans arguments, OCaml limite le
 nombre de variant dans les types à `size of the native integer`.  Dans
 le pire des cas (plateforme 32 bits, cela donne 1,073,741,823, ce qui
-devrait suffir à couvrir l'ensemble des département du monde...
+devrait suffire à couvrir l'ensemble des sous-régions du monde...
 
 > The only limit on the number of variants without parameters is the
 > size of the native integer (either 31 or 63 bits [RWO - Memory
@@ -96,33 +96,31 @@ e.g.
    ;FR_Alpes_de_Haute_Provence,[|"Alpes-de-Haute-Provence";"04"|]
 ```
 
-Pour mes tests, j'ai entrée toutes les valeurs utilisées à la main,
+Pour mes tests, j'ai entré toutes les valeurs utilisées à la main,
 mais on peut bien sûr penser mettre en place une extraction
-automatique de ce données depuis des sources réunissant déjà les
-appelations différentes utilisées pour un même variant.
+automatique de ces données depuis des sources réunissant déjà les
+appellations différentes utilisées pour un même variant.
 
-Une fois que l'on a ces correspondance le reste va tout seul.
+Une fois que l'on a ces correspondances, le reste va tout seul.
 
-On commence par determiner le pays, étape cruciale pour le bon
+On commence par déterminer le pays, étape cruciale pour le bon
 déroulement du reste de l'identification. En cas d'échec, un pays par
-défaut est attibué (configurable pour chaque base). On peut supposer
+défaut est attribué (configurable pour chaque base). On peut supposer
 que l'absence du pays indique que le lieu se trouve dans le pays
 d'origine du sosa 0.
 
-Ensuite, suivant la position dans la liste des sous parties, ou la
+Ensuite, suivant la position dans la liste des sous-parties, ou la
 forme de la donnée, on essaye de faire correspondre les autres parties
 à une région ou un département. Les parties qui ne correspondent à
-aucun des deux type sera utilisé comme adresse ou comme ville, ou tout
-simplement jeté si ces informations sont déjà renseignées ou qu'une
-information est en double (e.g. `Aisne (02)` : `Aisne` et `02`
+aucun des deux types seront utilisé comme adresse ou comme ville, ou
+tout simplement jeté si ces informations sont déjà renseignées ou
+qu'une information est en double (e.g. `Aisne (02)` : `Aisne` et `02`
 correspondent à la même information.
 
 ### Quelques ajustements à la main
 
 Enfin, une fonction de finalisation permet de remplir de données
 manquantes à partir de ce qu'on a pu trouver. Par exemple, si la
-région n'est pas renseigné, on peut la retrouver si le département
+région n'est pas renseignée, on peut la retrouver si le département
 l'est. Si le département est `FR_Paris`, alors la ville est
 forcément `Paris`.
-
-<a class="home-btn" href="/">Retout à l’accueil</a>

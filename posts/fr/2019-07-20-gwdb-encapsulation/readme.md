@@ -1,6 +1,6 @@
 # GWDB : l'encapsulation
 
-_Retour sur les récents changements apportés du module Gwdb :
+_Retour sur les récents changements apportés au module Gwdb :
 l'encapsulation._
 
 À l'origine, il n'existait qu'un seul backend de stockage des

@@ -1,9 +1,9 @@
 # GWDB : les collections et les marqueurs
 
-_Retour sur les récents changement apporté du module Gwdb :
+_Retour sur les récents changements apportés au module Gwdb :
 les collections._
 
-Dans geneweb, il arrive souvent de devoir itérer sur toutes les
+Dans GeneWeb, il arrive souvent de devoir itérer sur toutes les
 personnes de la base. Jusqu'ici, la façon de faire était d'utiliser
 une boucle `for`.
 
@@ -18,14 +18,14 @@ Cette façon de faire induit certains problèmes :
 1. Cela repose sur le fait que les identifiants des personnes dans la
   base sont des entiers qui vont de `0` à
   `nb_of_persons`. Typiquement, avec une implémentation de `Gwdb`
-  basée sur un SGBD il sera compliqué de respecter ce predicat.
-2. Cela fait itérer sur les personnes supprimés de la base. Dans
+  basée sur un SGBD il sera compliqué de respecter ce prédicat.
+2. Cela fait itérer sur les personnes supprimées de la base. Dans
   l'implémentation de base de `Gwdb`, les personnes sont stockées dans
   un tableau, et leur identifiant unique est leur index dans ce
   tableau. Quand une personne est supprimée, elle n'est pas réellement
-  retirée de ce tableau, ses informations sont juste écrasée. Nous
-  allons donc itérer sur des personnes supprimées (des personnes
-  vides).
+  retirée de ce tableau, ses informations sont seulement
+  écrasées. Nous allons donc itérer sur des personnes supprimées (des
+  personnes vides).
 
 Ces remarques sont vraies également pour les familles, et notamment le
 deuxième point, comme le montre la nécessiter d'utiliser le test
@@ -35,10 +35,10 @@ dans une boucle.
 ## Les collections
 
 Afin de donner plus de liberté aux implémentations de `Gwdb`, ainsi
-qu'une plus grande sécurité dans le reste du code de geneweb (ne pas
-avoir à se soucier de savoir si la personne/famille sur laquelle on
-itère existe toujours ou non), une couche d'abstraction a été ajouté à
-ces parcours de listes : le module `Collection`.
+qu'une plus grande sécurité dans le reste du code de GeneWeb (ne pas
+avoir à se soucier de savoir si la personne/famille sur qui on itère
+existe toujours ou non), une couche d'abstraction a été ajouté à ces
+parcours de listes : le module `Collection`.
 
 ```ocaml
 module Collection : sig
@@ -61,16 +61,17 @@ val families : base -> family Collection.t
 Chaque module implémentant `Gwdb` doit donc, en plus de toutes les
 fonctions de lecture et écriture des personnes/familles, fournir
 également un module `Collection`, qui permet aux algorithmes de
-geneweb d'agir sur l'ensemble des personnes/familles de la base, sans
+GeneWeb d'agir sur l'ensemble des personnes/familles de la base, sans
 avoir à se soucier de leur implémentation.
 
 Il revient donc au module `Gwdb`, et à lui seulement de faire le tri
-sur les données parcourables. Exit le dangereux oubli de `is_deleted_damily`.
+sur les données parcourables. Exit le dangereux oubli de
+`is_deleted_damily`.
 
 ## Les marqueurs
 
 Les algorithmes parcourant une collection d'élément ont souvent besoin
-de stocker des informations sur ces éléments pendant leur
+de stocker des informations sur ces éléments pendant leurs
 itérations. Par exemple, le calcul de consanguinité marque les
 personnes déjà traitées, afin de ne pas faire le travail plusieurs
 fois, ou les personnes en cours de traitement, afin de lever une
@@ -147,5 +148,3 @@ let check_noloop base error =
   let tab = Gwdb.iper_marker persons NotVisited in
   Gwdb.Collection.iter (noloop_aux base error tab) perso
 ```
-
-<a class="home-btn" href="/">Retout à l’accueil</a>
