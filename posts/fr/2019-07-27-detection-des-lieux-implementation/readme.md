@@ -118,7 +118,7 @@ fur et à mesure, et le monde devrait être suffisamment stable pour ne
 pas changer les noms des régions tous les quatre matins.
 
 Ensuite, comment gérer les anciennes régions ? Certains pays
-disparaissent, les frontières bougent, les régions sont réformés.
+disparaissent, les frontières bougent, les régions sont réformées.
 
 Pour le moment, rien n'est prévu pour gérer les anciens noms de
 régions. Comme statué dans l'article précédent, c'est la localisation
