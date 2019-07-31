@@ -25,3 +25,5 @@ l'encapsulation._
 [GeneWeb et js_of_ocaml](/posts/fr/2018-10-26-geneweb-js_of_ocaml/) -
 _Compiler GeneWeb en JavaScript afin de l'embarquer dans une
 application cordova et/ou electron._
+
+https://github.com/sagotch/sagotch.github.io/blob/c3e794c41e44568e9e9c9f1972cbff584a75274a/assets/css/style.scss#L6-L23
