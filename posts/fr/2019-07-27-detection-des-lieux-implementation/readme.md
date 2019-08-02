@@ -90,7 +90,7 @@ let fn = function
 
 La fonction `fn` obtenue n'aura donc pas besoin de connaitre les
 valeurs initiales des chaînes de caractères, et sera très
-efficace, en temps CPU et en consommation mémoire.
+efficace.
 
 ## Les collisions de hash
 
