@@ -92,6 +92,107 @@ La fonction `fn` obtenue n'aura donc pas besoin de connaitre les
 valeurs initiales des chaînes de caractères, et sera très
 efficace.
 
+## Benchmark des différentes pistes
+
+Recherche dichotomique
+```
+Latencies for 10000 iterations of "Place.country":
+Place.country:  6.57 WALL ( 5.45 usr +  1.12 sys =  6.57 CPU) @ 1522.42/s (n=10000)
+Latencies for 10000 iterations of "Place.region":
+Place.region:  1.16 WALL ( 1.16 usr +  0.00 sys =  1.16 CPU) @ 8632.36/s (n=10000)
+Latencies for 10000 iterations of "Place.subregion":
+Place.subregion:  1.07 WALL ( 1.07 usr +  0.00 sys =  1.07 CPU) @ 9332.44/s (n=10000)
+	Command being timed: "_build/default/benchmark/bench.exe"
+	User time (seconds): 25.96
+	System time (seconds): 1.12
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:27.08
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 39340
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1182093
+	Voluntary context switches: 1
+	Involuntary context switches: 382
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+```
+
+Hashtbl:
+```
+Latencies for 10000 iterations of "Place.country":
+Place.country:  0.76 WALL ( 0.76 usr +  0.00 sys =  0.76 CPU) @ 13243.17/s (n=10000)
+Latencies for 10000 iterations of "Place.region":
+Place.region:  0.86 WALL ( 0.86 usr +  0.00 sys =  0.86 CPU) @ 11677.84/s (n=10000)
+Latencies for 10000 iterations of "Place.subregion":
+Place.subregion:  0.51 WALL ( 0.51 usr +  0.00 sys =  0.51 CPU) @ 19613.53/s (n=10000)
+	Command being timed: "_build/default/benchmark/bench.exe"
+	User time (seconds): 20.72
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:20.73
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 22696
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 3007
+	Voluntary context switches: 1
+	Involuntary context switches: 286
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+```
+
+Pattern matching:
+```
+Latencies for 10000 iterations of "Place.country":
+Place.country:  0.74 WALL ( 0.74 usr +  0.00 sys =  0.74 CPU) @ 13501.58/s (n=10000)
+Latencies for 10000 iterations of "Place.region":
+Place.region:  0.81 WALL ( 0.81 usr +  0.00 sys =  0.81 CPU) @ 12286.04/s (n=10000)
+Latencies for 10000 iterations of "Place.subregion":
+Place.subregion:  0.48 WALL ( 0.48 usr +  0.00 sys =  0.48 CPU) @ 20882.41/s (n=10000)
+	Command being timed: "_build/default/benchmark/bench.exe"
+	User time (seconds): 20.80
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:20.81
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 22476
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 3002
+	Voluntary context switches: 1
+	Involuntary context switches: 340
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+```
+
 ## Les collisions de hash
 
 Pour le moment, je n'ai pas eu de problème de collision de hash (c'est
