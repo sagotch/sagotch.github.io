@@ -9,10 +9,10 @@ pour désigner les pays, les régions et les sous-régions_
 
 ## Rappel sur la représentation mémoire
 
-Dans [un article précédent](/posts/2019-07-22-detection-des-lieux/),
-nous avons vu que chaque région était représentée par un
-entier. Inutile d'aller plus loin dans l'optimisation de l'utilisation
-de la mémoire.
+Dans [un article
+précédent](/blog/posts/2019-07-22-detection-des-lieux/), nous avons vu
+que chaque région était représentée par un entier. Inutile d'aller
+plus loin dans l'optimisation de l'utilisation de la mémoire.
 
 ## La comparaison des chaînes de caractères
 
