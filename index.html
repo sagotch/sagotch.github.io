@@ -1,0 +1,216 @@
+<html>
+  <head>
+    <style>
+      :root {
+	  --color-background: #3F1651;
+	  --color-text: #F89F5B;
+	  --color-yep-background : #F89F5B;
+	  --color-yep-foreground: #3F1651;
+	  --color-nope-background : #E53F71;
+	  --color-nope-foreground : #F89F5B;
+	  /* --color-link: #9C3587; */
+	  --color-header: #E53F71;
+	  --color-link: #E53F71;
+	  --color-discreet: #653780;
+      }
+      * {
+	  font-family: 'monospace';
+      }
+      body {
+	  max-width: 80rem;
+	  margin: auto;
+	  padding: 2rem 0;
+	  color: var(--color-text);
+	  background-color: var(--color-background);
+      }
+      ul {
+	  padding: 0;
+      }
+      li {
+	  list-style: none;
+      }
+      a {
+	  color: var(--color-link);
+      }
+      #id {
+	  display: flex;
+      }
+      #avatar {
+	  font-size:.25rem;
+	  font-weight:bold;
+	  margin:2rem;
+      }
+      #infos {
+	  display: flex;
+	  flex-direction: column;
+      }
+      h1 {
+	  color: var(--color-header);
+      }
+      .subtitle {
+	  color: var(--color-text);
+	  font-size: 1rem;
+      }
+      .subtitle::before {
+	  content: '— ';
+      }
+      #email:after {
+	  content: attr(data-name) "@" attr(data-domain) "." attr(data-tld); 
+      }
+      #phone:after {
+	  content: "+" attr(data-code) " " attr(data-number); 
+      }
+      #tags {
+	  display: inline-flex;
+	  margin: 0;
+      }
+      .yep {
+	  margin-right: 1ex;
+	  background-color: var(--color-yep-background);
+	  color: var(--color-yep-foreground);
+	  padding: 2px 4px;
+      }
+      /* .yep::before { */
+      /* 	  content: ':)'; */
+      /* 	  display: inline-block; */
+      /* 	  transform: rotate(90deg); */
+      /* 	  margin-right: 1ex; */
+      /* 	  padding: 2px; */
+      /* } */
+      /* .nope { */
+      /* 	  margin-right: 1ex; */
+      /* 	  color: var(--color-nope-foreground); */
+      /* 	  background-color: var(--color-nope-background); */
+      /* 	  padding: 2px; */
+      /* } */
+      /* .nope::before { */
+      /* 	  content: ':('; */
+      /* 	  transform: rotate(90deg); */
+      /* 	  display: inline-block; */
+      /* 	  margin-right: 1ex; */
+      /* 	  padding: 2px; */
+      /* } */
+      #exp li {
+	  margin-bottom: 2rem;
+	  padding: 1ex 1ex 1ex calc(4rem + 1ex);
+      }
+      .job {
+	  color: var(--color-header);
+	  font-weight: bold;
+	  text-transform: uppercase;
+	  margin-left: -4rem;
+      }
+      .emp {
+	  color: var(--color-discreet);
+	  float: right;
+      }
+      .date {
+	  font-style: italic;
+	  color: var(--color-discreet);
+      }
+      .date::after {
+	  content: '@';
+	  margin-left: 1ex;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="id">
+      <pre id="avatar">
+            ****************
+        ************************
+      ****************************
+    ********************************
+  ************************************
+  ******      ************      ******
+******                            ******
+****                                ****
+****                                ****
+****                                ****
+**                                  ****
+**                                    **
+**                                    **
+****                                  **
+  **                                ****
+  **                                **
+  ****                              **
+  ****                            ****
+  ****                            ****
+    ****    ****************    ******
+    ******  ****************  ******
+    **********            **********
+      ********    ****    ********
+        ************************
+          ********************
+            ****************
+              ************
+                ********
+                  ****
+      </pre>
+      <div id="infos">
+	<h1>Julien Sagot <span class="subtitle">Artisan du logiciel, localisé à Dijon</span></h1>
+	<ul id="tags">
+	  <li class="yep">Logiciel libre</li>
+	  <li class="yep">Linux</li>
+	  <li class="yep">OCaml</li>
+	  <!-- <li class="nope">Java</li> -->
+	  <!-- <li class="nope">PHP</li> -->
+	  <!-- <li class="nope">JavaScript</li> -->
+	</ul>
+	<ul>
+	  <li id="email" data-name="ju.sagot" data-domain="gmail" data-tld="com"></li>
+	  <li id="phone" data-code="33" data-number="6 66 34 05 98"></li>
+	  <li><a href="https://github.com/sagotch">https://github.com/sagotch</a></li>
+	</ul>
+      </div>
+    </div>
+    <ul id="exp">
+      <li>
+	<div class="emp">
+	  <span class="date">Mai 2018 - Mars 2022 (3 ans et 11 mois)</span>
+	  <a href="https://www.geneanet.org/">GENEANET</a>
+	</div>
+	<div class="job">Développeur OCaml Full Stack</div>
+	<div class="details">
+	  Lead developper de <a href="https://github.com/geneweb/geneweb">GeneWeb</a>.
+	  <br>Gestion d'un dépôt open-source avec contributeurs externes.
+	  <br>Modernisation d'un code vieux de 20 ans.
+	  <br>Mise en place d'un système de plugins pour un programme OCaml (cmxs).
+	  <br>Nombreuses contributions à <a href="https://github.com/tategakibunko/jingoo">jingoo</a> (système de template inspiré de jinja2) et intégration de ce moteur dans <a href="https://github.com/geneweb/geneweb">GeneWeb</a>.
+	  <br>Intégration web.
+	</div>
+      </li>
+      <li>
+	<div class="emp">
+	  <span class="date">Décembre 2015 - Mai 2018 (2 ans et 6 mois)</span>
+	  <a href="https://www.about.besport.com/">BE SPORT</a>
+	</div>
+	<div class="job">Développeur OCaml Full Stack</div>
+	<div class="details">
+	  Développement d'un site avec <a href="https://ocsigen.org/tuto/latest/manual/intro">ocsigen</a>.
+	  <br>PPX pour aider à l'internationalisation du site&nbsp;: <a href="https://github.com/besport/ocsigen-i18n">ocsigen-i18n</a>.
+	  <br>Nombreux composants réutilisables pour ocsigen&nbsp;: <a href="https://github.com/ocsigen/ocsigen-toolkit">ocsigen-toolkit</a> (ot_picture_uploader, ot_noderesize, ot_nodeready, ot_tip).
+	  <br>Intégration web.
+	</div>
+      </li>
+      <li>
+	<div class="emp">
+	  <span class="date">Juin 2014 - Septembre 2014 (4 mois)</span>
+	  <a href="https://www.inria.fr/fr">INRIA</a>
+	</div>
+	<div class="job">Développeur OCaml (stage)</div>
+	<div class="details">
+	  Stage chez <a href="https://www.ocamlpro.com/fr/">OCamlPro</a>.
+	  <br>Création et manipulation du langage intermédiaire LLVM en OCaml pure&nbsp;: <a href="https://github.com/OCamlPro/ollvm">ollvm</a>
+	</div>
+      </li>
+      <li>	
+	<div class="emp">
+	  <span class="date">Septembre 2013 - Décembre 2013 (4 mois)</span>
+	  <a href="http://www.informatique.univ-paris-diderot.fr/">Paris 7</a>
+	</div>
+	<div class="job">Tuteur L2 Informatique JAVA (Étudiant contractuel)</div>
+      </li>
+    </ul>
+  </body>
+</html>
