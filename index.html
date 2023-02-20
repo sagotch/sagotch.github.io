@@ -1,216 +1,193 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
   <head>
-    <style>
-      :root {
-	  --color-background: #3F1651;
-	  --color-text: #F89F5B;
-	  --color-yep-background : #F89F5B;
-	  --color-yep-foreground: #3F1651;
-	  --color-nope-background : #E53F71;
-	  --color-nope-foreground : #F89F5B;
-	  /* --color-link: #9C3587; */
-	  --color-header: #E53F71;
-	  --color-link: #E53F71;
-	  --color-discreet: #653780;
-      }
-      * {
-	  font-family: 'monospace';
-      }
-      body {
-	  max-width: 80rem;
-	  margin: auto;
-	  padding: 2rem 0;
-	  color: var(--color-text);
-	  background-color: var(--color-background);
-      }
-      ul {
-	  padding: 0;
-      }
-      li {
-	  list-style: none;
-      }
-      a {
-	  color: var(--color-link);
-      }
-      #id {
-	  display: flex;
-      }
-      #avatar {
-	  font-size:.25rem;
-	  font-weight:bold;
-	  margin:2rem;
-      }
-      #infos {
-	  display: flex;
-	  flex-direction: column;
-      }
-      h1 {
-	  color: var(--color-header);
-      }
-      .subtitle {
-	  color: var(--color-text);
-	  font-size: 1rem;
-      }
-      .subtitle::before {
-	  content: '— ';
-      }
-      #email:after {
-	  content: attr(data-name) "@" attr(data-domain) "." attr(data-tld); 
-      }
-      #phone:after {
-	  content: "+" attr(data-code) " " attr(data-number); 
-      }
-      #tags {
-	  display: inline-flex;
-	  margin: 0;
-      }
-      .yep {
-	  margin-right: 1ex;
-	  background-color: var(--color-yep-background);
-	  color: var(--color-yep-foreground);
-	  padding: 2px 4px;
-      }
-      /* .yep::before { */
-      /* 	  content: ':)'; */
-      /* 	  display: inline-block; */
-      /* 	  transform: rotate(90deg); */
-      /* 	  margin-right: 1ex; */
-      /* 	  padding: 2px; */
-      /* } */
-      /* .nope { */
-      /* 	  margin-right: 1ex; */
-      /* 	  color: var(--color-nope-foreground); */
-      /* 	  background-color: var(--color-nope-background); */
-      /* 	  padding: 2px; */
-      /* } */
-      /* .nope::before { */
-      /* 	  content: ':('; */
-      /* 	  transform: rotate(90deg); */
-      /* 	  display: inline-block; */
-      /* 	  margin-right: 1ex; */
-      /* 	  padding: 2px; */
-      /* } */
-      #exp li {
-	  margin-bottom: 2rem;
-	  padding: 1ex 1ex 1ex calc(4rem + 1ex);
-      }
-      .job {
-	  color: var(--color-header);
-	  font-weight: bold;
-	  text-transform: uppercase;
-	  margin-left: -4rem;
-      }
-      .emp {
-	  color: var(--color-discreet);
-	  float: right;
-      }
-      .date {
-	  font-style: italic;
-	  color: var(--color-discreet);
-      }
-      .date::after {
-	  content: '@';
-	  margin-left: 1ex;
-      }
-    </style>
+    <meta charset="utf-8">
+    <title>SAGOTCH par Julien Sagot</title>
+    <meta name="description" content="Développement d'applications et de sites web sur mesure, fiables et durables.">
+    <meta property="og:url" content="https://www.sagotch.fr/">
+    <meta property="og:title" content="SAGOTCH par Julien Sagot">
+    <meta property="og:image" content="https://www.sagotch.fr/sagotch_sharing.png">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Développement d'applications et de sites web sur mesure, fiables et durables.">
+    <meta property="twitter:domain" content="sagotch.fr">
+    <meta property="twitter:url" content="https://www.sagotch.fr/">
+    <meta name="twitter:title" content="SAGOTCH par Julien Sagot">
+    <meta name="twitter:description" content="Développement d'applications et de sites web sur mesure, fiables et durables.">
+    <meta name="twitter:image" content="https://www.sagotch.fr/sagotch_sharing.png">
+    <link href="reset.css" rel="stylesheet">
+    <link href="sagotch.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="sagotch.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <div id="id">
-      <pre id="avatar">
-            ****************
-        ************************
-      ****************************
-    ********************************
-  ************************************
-  ******      ************      ******
-******                            ******
-****                                ****
-****                                ****
-****                                ****
-**                                  ****
-**                                    **
-**                                    **
-****                                  **
-  **                                ****
-  **                                **
-  ****                              **
-  ****                            ****
-  ****                            ****
-    ****    ****************    ******
-    ******  ****************  ******
-    **********            **********
-      ********    ****    ********
-        ************************
-          ********************
-            ****************
-              ************
-                ********
-                  ****
-      </pre>
+      <div id="avatar">
+	<svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 256 256">
+	  <path d="M120 240v-4h-4-4v-4-4h-4-4v-4-4h-4-4v-4-4h-4-4v-4-4h-4-4v-4-4h-4-4v-4-4h-4-4v-12-12h-4-4v-20-20h-4-4V92 60h4 4v-8-8h4 4v-4-4h4 4v-4-4h4 4v-4-4h8 8v-4-4h32 32v4 4h8 8v4 4h4 4v4 4h4 4v4 4h4 4v8 8h4 4v36 36h-4-4v20 20h-4-4v8 8h-4-4v4 4h-4-4v4 4h-4-4v4 4h-4-4v4 4h-4-4v4 4h-4-4v4 4h-4-4v4 4h-8-8zm0-48v-4h8 8v4 4h8 8v-8-8h-24-24v8 8h8 8zm-24-20v-8h32 32v8 8h4 4v-4-4h4 4v-4-4h4 4v-8-8h4 4v-12-12h4 4v-12-12h-4-4V84 68h-4-4v-4-4h-4-4v-4-4h-12-12v4 4h-24-24v-4-4H92 80v4 4h-4-4v4 4h-4-4v12 12h-4-4v12 12h4 4v12 12h4 4v12 12h4 4v4 4h4 4v4 4h4 4z"/>
+	</svg>
+      </div>
       <div id="infos">
-	<h1>Julien Sagot <span class="subtitle">Artisan du logiciel, localisé à Dijon</span></h1>
+	<h1>
+	  <span class="print">Julien Sagot <span class="subtitle">Développeur freelance</span></span>
+	  <span class="screen">
+	    SAGOTCH
+	    <span class="alias">par <span>Julien Sagot</span></span>
+	    <span class="subtitle">Artisan<span class="screen">at</span> du logiciel</span>
+	  </span>
+	</h1>
+	<hr>
 	<ul id="tags">
-	  <li class="yep">Logiciel libre</li>
 	  <li class="yep">Linux</li>
 	  <li class="yep">OCaml</li>
-	  <!-- <li class="nope">Java</li> -->
-	  <!-- <li class="nope">PHP</li> -->
-	  <!-- <li class="nope">JavaScript</li> -->
+	  <li class="yep">CSS</li>
 	</ul>
-	<ul>
-	  <li id="email" data-name="ju.sagot" data-domain="gmail" data-tld="com"></li>
-	  <li id="phone" data-code="33" data-number="6 66 34 05 98"></li>
-	  <li><a href="https://github.com/sagotch">https://github.com/sagotch</a></li>
+	<ul id="links">
+	  <li>
+	    <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 830 1280">
+	      <path d="M385.5 1.1c-55.5 4.4-104.3 17.6-153 41.4C86.8 113.7-4.5 264.8.3 426.5 2.2 487 15.5 542 40.9 594.5 51.8 617 59.2 629.8 74 652c6.5 9.6 85.6 136.9 176 282.7L415 1200c.4 0 74.7-119.4 165-265.2L756 652c14.8-22.2 22.2-35 33.1-57.5 42.1-86.9 52-186.9 27.9-282.1-24.4-95.8-82.2-179.5-164-237.1C583.4 26.2 497.9-.6 412.6.1c-9.4.1-21.6.5-27.1 1zM449 177.5c44 8 81.3 27.1 112 57.5 76.9 76.1 82.5 198 13 281.2-33.5 40.2-81.7 66.3-134.4 72.8-11.4 1.4-37.8 1.4-49.2 0-85.3-10.5-155-71.5-176.4-154.4-14.1-54.5-5.2-113.6 24.3-161.3 33-53.1 86.2-87.6 149.7-96.8 13-1.9 48.1-1.3 61 1z"/>
+	    </svg>
+	    <span>Dijon, France</span>
+	  </li>
+	  <li>
+	    <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 12.116 11.912">
+	      <path d="M4.932.09c-.82.139-1.618.443-2.33.934C1.178 2.004.145 3.736.001 6.188a.6.6 0 0 0 0 .057c.102 2.884 1.803 4.848 3.998 5.555s4.854.233 7.012-1.455a.6.6 0 1 0-.74-.945c-1.865 1.459-4.132 1.83-5.904 1.26-1.765-.568-3.066-1.994-3.162-4.428.134-2.139.97-3.456 2.078-4.219 1.114-.767 2.549-.97 3.867-.691s2.487 1.032 3.098 2.096c.6 1.046.703 2.417-.156 4.158-.341.365-.643.57-.848.604-.219.036-.438-.015-.801-.346.068.064.043.054.02-.002a2.08 2.08 0 0 1-.082-.262c-.051-.202-.046-.484-.062-.396l.09-.58c.003-.023.028-.024.029-.049a.6.6 0 0 0-.002-.119c.114-.538.255-1.074.256-1.637.001-.41-.06-.831-.273-1.217S7.825 2.87 7.348 2.7c-1.198-.429-2.38.002-3.209.764S2.75 5.303 2.561 6.393c-.225 1.3.409 2.349 1.34 2.703s2.045.147 2.943-.521a.6.6 0 0 0 .016-.014c.103-.082.291-.265.449-.406l.043.133c.056.136.091.258.275.428a.6.6 0 0 0 .002.002c.538.492 1.181.749 1.809.645s1.144-.503 1.617-1.039a.6.6 0 0 0 .084-.125c1.048-2.061.962-3.959.148-5.377S9.001.484 7.397.145C6.595-.024 5.752-.049 4.932.09zm.961 3.689a1.68 1.68 0 0 1 1.051.049.6.6 0 0 0 .002 0c.251.09.346.187.422.324s.123.349.123.633c-.001.452-.153 1.095-.281 1.721-.012-.06-.116.199-.354.447a8.14 8.14 0 0 1-.732.66c-.599.443-1.341.535-1.797.361s-.74-.479-.584-1.377c.141-.815.606-1.7 1.207-2.252.3-.276.613-.473.943-.566z"/>
+	    </svg>
+	    <a id="email" data-name="contact" data-domain="sagotch" data-tld="fr"
+	       onmouseover="if (this.innerText == '') { this.innerText = this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld ; this.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false }"
+	       href="#"></a>
+	  </li>
+	  <li>
+	    <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1030 1280" preserveAspectRatio="xMidYMid meet">
+	      <path d="M165.592 1c6 1.6 14.9 6.7 19.4 11.3 7.1 7.2 212 277.8 215.7 284.8 10 19.1 8 41.4-5.3 57.8-1.9 2.4-24.7 21.3-50.6 42.1-48.8 39.1-50.6 40.8-55.5 52.1-5 11.4-6.6 27.9-4.2 43 2.8 17.1 11.3 39.9 24 64.4 17 32.7 20.1 37 112.2 157.6l87.4 114.7 22.5 23.7c44.2 46.7 72 70 95.5 80.1 8.7 3.8 9.3 3.9 20.5 3.9 12.3 0 17.2-1.4 24.6-7 1.7-1.3 20.1-23.3 40.7-48.8l40.8-49.2c16.3-13.8 41-11.9 56 4.1 5.3 5.7 209.7 274.9 213.6 281.3 11.2 18.6 8.9 44.8-5.5 60.8-3.1 3.5-84.2 64.1-102.1 76.3-28.2 19.2-78.1 29-127.8 25-139.9-11.4-298.4-114.6-454.2-296-119.7-139.3-217.7-292.8-273.3-428-35.1-85.3-54.1-162.7-58.9-240-4.9-78.5 11.3-157.5 41.8-203.7 5-7.6 82.1-97.3 87.6-101.9 6.1-5.2 15-8.6 23.5-9 4.2-.2 9.4.1 11.6.6z"/>
+	    </svg>
+	    <a id="phone" data-code="33" data-number="7 69 62 71 63"
+	       onmouseover="if (this.innerText == '') { this.innerText = '+' + this.dataset.code + ' ' + this.dataset.number ; this.href = 'tel:+' + this.dataset.code + ' ' + this.dataset.number ; return false }"
+	       href="#"></a>
+	  </li>
+
+	  <li>
+	    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1280" preserveAspectRatio="xMidYMid meet">
+	      <path d="M586.5 1c-43.8 2.5-77.2 9.5-156 32.7-26.9 7.9-33.5 10.6-69 28.7-62.8 32.1-79.6 42.8-123 78.5-48.2 39.7-66.3 58.3-111.7 114.9-21.7 27.1-39.8 56.2-58.3 93.7-17 34.3-27.4 59.9-38.4 93.7-16.4 50.5-23.9 88-28.3 142.3-1.9 23.8-1.6 91.9.6 116 4.5 49.9 10.1 80.1 22.2 119L36 858.6c7 24.1 8.9 29.2 19.3 49.9 12.6 25.3 28.4 52.6 47.8 82.6 28.9 44.7 45.8 65.7 80.4 100.5 32.6 32.7 64.7 59.9 98.5 83.5 21.3 14.9 85.7 50.7 104.2 57.9 42.5 16.5 108.8 36.3 132.3 39.5 6.1.8 14.2 2.4 18 3.5 4.2 1.2 12.6 2.4 21 3 45.2 3.1 183.7-1.7 214.6-7.5 39.7-7.4 110-30.6 143.4-47.3 30.4-15.1 74.1-40.2 91.6-52.4 37.4-26.2 91.2-75.6 123.3-113.3 65.3-76.4 110.3-163.8 134.5-261 4.6-18.4 9.5-43.2 11.1-55.5 6.1-48.6 4.5-183.9-2.6-223-5.7-31.5-29.2-106.2-44.3-140.9-5.2-12-35.8-67.3-44.6-80.8-23.6-35.8-62.8-84.7-92.1-114.9-7.8-8-29.1-26.2-75.8-64.7-7.6-6.3-16.2-12.4-20.6-14.7-4.1-2.1-15.4-8.3-25.1-13.8-48.5-27.6-83.2-43.9-116.5-54.6C787.4 13 775 9.9 739 5.6 702.5 1.1 624.7-1.2 586.5 1zm17.8 56.7l7.9 1.8-.5 105c-.5 102.6-.8 114.2-3.7 123.1-.7 2.1-1.9 3.4-3.6 3.8-5.3 1.4-46.9 3.5-88.4 4.6-44.8 1.2-161.3.9-166.2-.5-2.3-.6-2.8-1.3-2.8-3.9 0-7.2 14.7-37.4 30.8-63.6 22.7-36.7 40.3-59.2 67.6-86.5 27.1-27 56.7-49.7 81.2-62.2 19.3-10 44.8-20.4 54.9-22.6 4.9-1.1 15.6-.6 22.8 1zm91.1-.2c8 2.1 16 5.4 36.8 15.1 37.9 17.6 63.1 35.6 95.9 68.3 24.3 24.4 37.9 41.4 56.9 71.1 22 34.4 41 70.3 41 77.5 0 1.3-.7 2.6-1.6 2.9-5 1.9-51.6 3-133.9 3-104 0-121.5-.9-124.5-6.4-3.1-5.8-3.8-42.4-2-110 2.1-79.5 3.7-107.8 6.4-115.9 2.3-6.8 12.1-8.9 25-5.6zM909 114.7c36.5 19.4 48.2 26.1 62.1 35.3 42.7 28.7 103.5 86.1 133.5 126.3 7.4 9.8 9.5 14 7.8 15.7-.5.5-8.2 1.4-17.2 2.1-18.4 1.3-92.8.7-97.7-.8-5.3-1.6-14.7-15.9-36-54.8-20-36.5-36.2-61.8-56.9-88.8-25.8-33.7-36.9-50.8-35.1-53.8.8-1.3 9 2.6 39.5 18.8zm-514.4-6.3c1.2 3.2-7.4 16.9-26.9 43.1-21.4 28.5-41.6 60.2-56.9 88.9-20.6 38.7-29.1 52.7-33.5 55-13.7 7-99.3 6.6-108-.5-1.9-1.6-1-5.1 2.9-11.2 16-25.1 77.6-86.7 115.4-115.4 26.7-20.3 79.4-51.7 98.9-59 7.2-2.6 7.4-2.7 8.1-.9zm755.1 239.9c15.7 8.5 48.9 87.7 66.7 159.2 7.3 29.4 13.1 67.9 12.4 82.6-.4 10.1-2.3 12.3-12.3 14.4-12.6 2.6-44.6 3.8-87.5 3.2-49.1-.7-68.7-2.5-72.4-6.6-3.8-4.3-6.4-21.4-9.1-60.1-2.2-31-4.2-48.6-7.1-61.5-1.4-6.1-5.4-25.4-9-43-7.5-37.3-10-46.9-16-62.5-5.4-13.7-5.7-19.6-1.3-21.7 3.3-1.6 24.3-4.1 43.9-5.2 8-.5 31.2-.8 51.5-.7 33.3.1 37.3.3 40.2 1.9zM232.8 350c29.5 1.6 32.7 3.7 26.8 17.8-6.5 15.8-14.6 50.1-23 97.7-7.1 40.3-10.8 68.2-13.1 98.9-1.6 20.2-3.6 32.9-6 37.7-1.7 3.2-6.7 5.7-13.8 6.9-8.9 1.5-72.7 3.2-103.2 2.8-43.5-.7-43.5-.7-44.3-26.7-.7-21.8 2.3-51.9 7-71.1 2-8.2 17.6-58.2 24-76.5 12-35.1 25.9-63.5 37.4-77.2 6.4-7.5 11.8-9.3 30.9-10.2 22.3-1.2 57.7-1.2 77.3-.1zm348.2 1.1c15.6.9 23.4 1.9 24.8 3.4 1.5 1.5 2.1 18.3 2.2 65.5 0 56.3-1.9 184.1-2.9 185.2-.3.4-66.3 1-146.6 1.4-177.8.8-183.2.6-183.7-7.8-1-19.9 3.8-67 11.7-115.6 10.1-61.8 27.1-121.2 36.8-128.9 2.1-1.7 4.8-2.2 12.9-2.8 31.1-2.3 207.8-2.6 244.8-.4zm375.1 8.4c12.4 32.1 21.7 69.2 30.5 122 7 41.8 10.6 75.7 10.6 99 0 17.2-.7 21-4.5 22.4-8.8 3.4-62.4 5.1-155.2 5.2-111.4 0-170.2-2.4-174.9-7.1-1.6-1.6-2-91.4-.7-160l1.2-72.5c0-8.8.2-16.2.4-16.5s65.4-.5 144.9-.5H953l3.1 8zM1204.5 658c7.7.6 16.1 1.5 18.7 2.1 4.1.9 4.8 1.5 5.9 4.6 1.6 4.9 1.3 25.1-.6 41.3-5.9 50.8-22.2 115.2-41.2 163.5-13.8 34.9-31.6 62.2-42.9 65.5-7.2 2.1-29.6 2.9-80 3-27.5 0-50.3-.2-50.5-.4s-.1-6.2.2-13.3c.6-11.7 1.1-13.9 5.3-26.3 12.1-35.8 23.2-100 30.1-174 4.5-48.6 6.5-58.4 12.5-61.5 3.2-1.7 17.7-3.4 37.5-4.4 22.3-1.2 89-1.2 105-.1zm-1008.4 5c13.5 1 18.4 2.7 20 6.7 1.9 5 4.7 24.6 6.4 43.8 2.1 25.3 3.9 40.6 8.1 67 8.9 56.9 19.4 107.2 28.1 134 4.1 12.8 5.3 21.5 3.1 23.2-3.1 2.6-15.5 3.5-56.8 4-56.3.7-64-.3-74.3-9.7-11.9-10.9-34.4-57.5-48.1-99.6-24.8-76.6-36-155.7-23.3-166.2 4.8-4 97.6-6.2 136.8-3.2zm793.4-.2c5.7.7 6.1.9 8 4.7 1.8 3.6 2 5.9 1.9 22-.4 56.5-21.6 175.5-39.8 223.4-2 5.1-5.7 12.9-8.3 17.2l-4.8 7.9H803.9 661.3l-1.6-7.8c-.9-4.2-1.8-15.4-2.1-24.7-1.4-42 4.1-231.4 6.9-238.8.9-2.1 2.9-2.5 18.5-3.2 42.1-2.2 289.9-2.7 306.5-.7zm-399.9.8l16.2.6.7 94.7c1 127.3 0 164.8-4.7 176.7l-2.4 5.9-117.5-.1c-130.5-.1-151.5-.7-155.6-4.6-19.8-18.4-51.1-171.6-51.7-252.8-.1-18 .2-18.5 11.6-19.5 20.2-1.9 258.6-2.5 303.4-.9zM863 992c42.3 1.6 58.4 3.3 59.6 6.4.9 2.3-4.3 15.9-11 29.4-19.2 38.2-47.3 76.7-81 111.1-48 48.8-88 73.3-138.1 84.6-14.5 3.3-29.5 3.9-32 1.4-3-2.9-3.7-29.3-3.2-108.4.7-86.7 2.1-115.9 5.7-119.5 2.2-2.2 17.3-3.9 45-4.9 31-1.2 125-1.2 155-.1zm222.5 0c17.2 1.1 23.3 2.3 24.2 4.6.8 2.1-3.9 11-10.2 18.9-13.8 17.5-51.9 55.2-80.7 79.8-32.3 27.6-50.3 40.5-79.8 57l-32.4 18.6c-21.8 13.2-35.7 18.9-39.1 16.1-1.8-1.5-.6-3.4 26.3-38.5 18.1-23.6 41-57 53.2-77.4 3.4-5.7 12.9-22.9 21.1-38.2 16.8-31.5 19.1-35.4 21.8-36.8 7.3-4 61.5-6.2 95.6-4.1zm-486.6 2.4c1.1 1 2.5 3.5 3.1 5.5 2.5 8.9 2.1 132.6-.6 204.3l-.6 16.6-12.2.7c-7.8.5-14.9.3-19.6-.4-30.2-4.7-73.5-31.1-114-69.7-37.1-35.2-61.7-66.8-85-108.9-8.5-15.4-14.7-25.1-17.3-27.3-2-1.7-4.1-9.5-3.3-12.5 1.4-5.7 11.4-6.6 74.6-6.7 52.4 0 127.4-1.6 143.5-2.9 5.5-.5 14.3-.8 19.6-.7 8 .1 10.1.4 11.8 2zm-322.1 4c5.9 1.9 12.6 7.5 17.3 14.2 1.6 2.3 8.6 14.9 15.5 28.1 21.1 39.6 32.9 57.9 66 101.9 19.7 26.2 22.7 31.2 18.7 31.5-6.2.4-13.2-2-29.7-10.3-29.2-14.6-63.1-36.5-86.6-56.1-33.8-28.1-95-90.1-101.6-102.9-1.3-2.5-1.3-2.9.5-4.7 1.1-1.1 4-2.2 6.8-2.6 2.6-.3 5.5-.8 6.3-1s19.5-.2 41.5-.1c35.1.2 40.7.4 45.3 2z"/>
+	    </svg>
+	    <a href="https://www.sagotch.fr">www.sagotch.fr</a>
+	  </li>
+	  <li>
+	    <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 43.439 42.366">
+	      <path d="M21.714.016C9.721.016-.003 9.74-.003 21.736c0 9.596 6.223 17.736 14.853 20.609 1.087.199 1.483-.472 1.483-1.048l-.029-3.693c-6.041 1.312-7.316-2.912-7.316-2.912-.988-2.508-2.412-3.176-2.412-3.176-1.972-1.348.149-1.321.149-1.321 2.18.155 3.327 2.239 3.327 2.239 1.937 3.319 5.084 2.36 6.321 1.805.197-1.404.757-2.361 1.379-2.904-4.823-.548-9.893-2.412-9.893-10.734 0-2.371.847-4.309 2.236-5.828-.224-.549-.969-2.757.212-5.748 0 0 1.824-.584 5.973 2.227 1.732-.481 3.591-.723 5.437-.731 1.844.008 3.703.249 5.437.731C31.3 8.44 33.12 9.024 33.12 9.024c1.185 2.991.44 5.199.216 5.748 1.392 1.519 2.233 3.457 2.233 5.828 0 8.344-5.079 10.18-9.917 10.717.78.671 1.475 1.996 1.475 4.023l-.027 5.957c0 .581.391 1.257 1.493 1.045 8.624-2.879 14.841-11.013 14.841-20.606C43.434 9.74 33.709.016 21.714.016" fill-rule="evenodd"/>
+	    </svg>
+	    <a href="https://github.com/sagotch">github.com/sagotch</a>
+	  </li>
+	  <li>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 380">
+		<path d="M373.197 151.982l-.533-1.362-51.585-134.627a13.44 13.44 0 0 0-5.309-6.394c-4.92-3.054-11.223-2.715-15.787.849-2.204 1.79-3.802 4.216-4.578 6.946l-34.831 106.565H119.532L84.701 17.394a13.54 13.54 0 0 0-4.578-6.966c-4.564-3.564-10.867-3.903-15.787-.849-2.395 1.523-4.252 3.759-5.309 6.394L7.343 150.541l-.513 1.362c-15.256 39.86-2.3 85.005 31.772 110.709l.178.138.474.335 78.582 58.848 38.877 29.424 23.681 17.879c5.693 4.322 13.568 4.322 19.261 0l23.681-17.879 38.877-29.424 79.056-59.203.197-.158c33.992-25.706 46.923-70.772 31.733-110.591z"/>
+		</svg>
+	    <a href="https://gitlab.com/sagotch">gitlab.com/sagotch</a>
+	  </li>
+	  <li>
+	    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 223.57 223.57" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+	      <path d="M190.496 190.494h-33.127v-51.878c0-12.371-.221-28.296-17.229-28.296-17.254 0-19.894 13.478-19.894 27.395v52.775H87.12V83.808h31.801v14.579h.446c6.475-11.071 18.559-17.708 31.377-17.232 33.575 0 39.766 22.084 39.766 50.815zM49.742 69.225h-.004c-10.546 0-19.224-8.677-19.224-19.223s8.678-19.224 19.224-19.224 19.222 8.676 19.224 19.22v.004c0 10.544-8.676 19.222-19.22 19.223m16.563 121.269H33.144V83.808h33.161zM207.01.015H16.497C7.554-.086.109 7.186 0 16.129v191.304c.105 8.948 7.549 16.228 16.497 16.132H207.01c8.97.113 16.44-7.166 16.56-16.132V16.116c-.12-8.962-7.6-16.233-16.56-16.115" fill-rule="nonzero"/>
+	    </svg>
+	    <a href="https://www.linkedin.com/in/sagotch/">www.linkedin.com/in/sagotch</a>
+	  </li>
 	</ul>
       </div>
     </div>
+    <hr>
+    <p class="quote">
+      Développeur OCaml indépendant, je suis prêt à vous aider à concevoir et développer vos applications et sites web sur mesure.
+      Pour des projets bien pensés et bien réalisés, qui donneront des produits de qualité, robustes et maintenables, n'hésitez pas à me contacter.
+    </p>
     <ul id="exp">
       <li>
 	<div class="emp">
-	  <span class="date">Mai 2018 - Mars 2022 (3 ans et 11 mois)</span>
+	  <span class="date">Depuis Juin 2022</span>
+	  <!-- <span class="duration"></span> -->
+	  <a href="https://www.nomadic-labs.com/">NOMADIC LABS</a>
+	</div>
+	<div class="job">Développeur OCaml / ReScript</div>
+	<ul class="details">
+	  <li>Développement de <a data-anchor="1" href="https://umamiwallet.com/">umami</a>, un wallet pour la blockchain <a href="https://tezos.com/">Tezos</a>.</li>
+	  <li>Utilisation des technologies <a href="https://rescript-lang.org/">ReScript</a>, <a href="https://reactjs.org/">React</a> et <a href="https://www.electronjs.org/">Electron</a>.</li>
+	  <li>Mise en place de la compilation et du déploiement des releases Windows, macOS et Linux via <a href="https://docs.gitlab.com/ee/ci/">GitLab CI</a>.</li>
+	</ul>
+      </li>
+      <li>
+	<div class="emp">
+	  <span class="date">Mai 2018 - Mars 2022</span>
+	  <span class="duration">3 ans et 11 mois</span>
 	  <a href="https://www.geneanet.org/">GENEANET</a>
 	</div>
 	<div class="job">Développeur OCaml Full Stack</div>
-	<div class="details">
-	  Lead developper de <a href="https://github.com/geneweb/geneweb">GeneWeb</a>.
-	  <br>Gestion d'un dépôt open-source avec contributeurs externes.
-	  <br>Modernisation d'un code vieux de 20 ans.
-	  <br>Mise en place d'un système de plugins pour un programme OCaml (cmxs).
-	  <br>Nombreuses contributions à <a href="https://github.com/tategakibunko/jingoo">jingoo</a> (système de template inspiré de jinja2) et intégration de ce moteur dans <a href="https://github.com/geneweb/geneweb">GeneWeb</a>.
-	  <br>Intégration web.
-	</div>
+	<ul class="details">
+	  <li>Lead developper de <a data-anchor="1" href="https://github.com/geneweb/geneweb">GeneWeb</a>, <br class="print">logiciel de généalogie doté d'une interface web utilisé par plus de 800.000 bases hebergées sur <a data-anchor="1" href="https://geneanet.org">Geneanet</a>.</li>
+	  <li>Gestion d'un dépôt open-source et de ses contributeurs externes.</li>
+	  <li>Modernisation d'un code vieux de 20 ans.</li>
+	  <li>Mise en place d'un système de plugins chargés dynamiquement.</li>
+	  <li>Intégration du moteur de template <a data-anchor="1" href="https://github.com/tategakibunko/jingoo">jingoo</a> et nombreuses contributions à ce dernier.</li>
+	  <li>Intégration web.</li>
+	</ul>
       </li>
       <li>
 	<div class="emp">
-	  <span class="date">Décembre 2015 - Mai 2018 (2 ans et 6 mois)</span>
+	  <span class="date">Décembre 2015 - Mai 2018</span>
+	  <span class="duration">2 ans et 6 mois</span>
 	  <a href="https://www.about.besport.com/">BE SPORT</a>
 	</div>
 	<div class="job">Développeur OCaml Full Stack</div>
-	<div class="details">
-	  Développement d'un site avec <a href="https://ocsigen.org/tuto/latest/manual/intro">ocsigen</a>.
-	  <br>PPX pour aider à l'internationalisation du site&nbsp;: <a href="https://github.com/besport/ocsigen-i18n">ocsigen-i18n</a>.
-	  <br>Nombreux composants réutilisables pour ocsigen&nbsp;: <a href="https://github.com/ocsigen/ocsigen-toolkit">ocsigen-toolkit</a> (ot_picture_uploader, ot_noderesize, ot_nodeready, ot_tip).
-	  <br>Intégration web.
-	</div>
+	<ul class="details">
+	  <li>Développement d'un réseau social avec <a data-anchor="1" href="https://ocsigen.org">ocsigen</a>.</li>
+	  <li>PPX pour aider à l'internationalisation du site&nbsp;: <a data-anchor="1" href="https://github.com/besport/ocsigen-i18n">ocsigen-i18n</a>.</li>
+	  <li>Nombreux composants réutilisables pour ocsigen&nbsp;: <a data-anchor="1" href="https://github.com/ocsigen/ocsigen-toolkit">ocsigen-toolkit</a>.</li>
+	  <li>Intégration web.</li>
+	</ul>
       </li>
       <li>
 	<div class="emp">
-	  <span class="date">Juin 2014 - Septembre 2014 (4 mois)</span>
+	  <span class="date">Juin 2014 - Septembre 2014</span>
+	  <span class="duration">4 mois</span>
 	  <a href="https://www.inria.fr/fr">INRIA</a>
 	</div>
-	<div class="job">Développeur OCaml (stage)</div>
-	<div class="details">
-	  Stage chez <a href="https://www.ocamlpro.com/fr/">OCamlPro</a>.
-	  <br>Création et manipulation du langage intermédiaire LLVM en OCaml pure&nbsp;: <a href="https://github.com/OCamlPro/ollvm">ollvm</a>
-	</div>
+	<div class="job">Développeur OCaml</div>
+	<ul class="details">
+	  <li>Stage chez <a href="https://www.ocamlpro.com/fr/">OCamlPro</a>.</li>
+	  <li>Bibliothèque de création et de manipulation de programmes sous forme de représentation intermédiaire LLVM en OCaml&nbsp;: <a data-anchor="1" href="https://github.com/OCamlPro/ollvm">ollvm</a></li>
+	</ul>
       </li>
       <li>	
 	<div class="emp">
-	  <span class="date">Septembre 2013 - Décembre 2013 (4 mois)</span>
-	  <a href="http://www.informatique.univ-paris-diderot.fr/">Paris 7</a>
+	  <span class="date">Septembre 2013 - Décembre 2013</span>
+	  <span class="duration">4 mois</span>
+	  <a href="https://www.informatique.univ-paris-diderot.fr/">PARIS 7</a>
 	</div>
-	<div class="job">Tuteur L2 Informatique JAVA (Étudiant contractuel)</div>
+	<div class="job">Tuteur JAVA</div>
+	<ul class="details">
+	  <li>Étudiant contractuel.</li>
+	  <li>Tutorat pour les élèves de L2 Informatique.</li>
+	</ul>	 
       </li>
     </ul>
+    <p style="display:none" id="print-dialog-link" class="screen">
+      <a href="javascript:window.print();">>> Version imprimable <<</a>
+    </p>
+    <script>
+      window.onload = function () {
+	  if (window.print) {
+	      document.getElementById('print-dialog-link').style.display = '' ;
+	  }
+      } ;
+    </script>
+    <div class="print footnotes">
+      <hr>
+      <ol>
+    <li>https://umamiwallet.com/</li>
+	<li>https://github.com/geneweb/geneweb</li>
+	<li>https://geneanet.org</li>
+	<li>https://github.com/tategakibunko/jingoo</li>
+	<li>https://ocsigen.org</li>
+	<li>https://github.com/besport/ocsigen-i18n</li>
+	<li>https://github.com/ocsigen/ocsigen-toolkit</li>
+	<li>https://github.com/OCamlPro/ollvm</li>
+      </ol>
+    </div>
   </body>
 </html>
